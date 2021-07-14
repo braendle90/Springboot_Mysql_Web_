@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<table>
+    <thead>
+    <tr>
+        <th> Fist Name </th>
+        <th> Last Name </th>
+        <th>   ID   </th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${customerList.empty}">
+        <td colspan="3"> No Customers Available </td>
+    </tr>
+    <tr th:each="customer : ${customerList}">
+        <td><span th:text="${customer.firstName}"> abs </span></td>
+        <td><span th:text="${customer.lastName}"> dsf </span></td>
+        <td><span th:text="${customer.id}"> dsf </span></td>
+        <td><a th:href="@{'/customer/delete/' + ${customer.id}}"> Delete </a> |  <a th:href="@{'/customer/view/' + ${customer.id}}"> View </a> |
+            <a th:href="@{'/customer/edit/' + ${customer.id}}"> edit </a>
+        </td>
+    </tr>
+
+
+
+
+    </tbody>
+</table>
+
+<div class="button">
+
+
+    <button onclick="location.href='/index.html'" >Back to start</button>
+    <button onclick="location.href='/customer'" >Go to details</button>
+
+
+
+
+</div>
+
+
+</body>
+</html>
